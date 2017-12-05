@@ -140,7 +140,8 @@ parseSlice first firstClose trimmed =
                 if String.startsWith "?" tagName then
                     Ok ( DocType tagName props, firstClose + 1 )
                 else if String.endsWith "/" beforeClose then
-                    let tag = if String.endsWith "/" tagName then
+                    let
+                        tag = if String.endsWith "/" tagName then
                                   String.slice 0 -1 tagName
                               else
                                   tagName
