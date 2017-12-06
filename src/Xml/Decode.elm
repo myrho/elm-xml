@@ -199,11 +199,12 @@ actualDecode text =
 
 
 {-| Try to decode a string and turn it into an XML value
-    >>> import Xml exposing(Value(Tag, Object))
-    >>> import Xml.Encode exposing (null)
-    >>> import Dict
-    >>> decode "<name></name>"
-    Ok (Object [Tag "name" Dict.empty null])
+    import Xml exposing(Value(Tag, Object))
+    import Xml.Encode exposing (null)
+    import Dict
+
+    decode "<name></name>"
+    --> Ok (Object [Tag "name" Dict.empty null])
 -}
 decode : String -> Result String Value
 decode text =
@@ -218,9 +219,10 @@ decode text =
 
 {-| Decode a string
 
-    >>> import Xml exposing (Value(StrNode))
-    >>> decodeString "hello"
-    Ok (StrNode "hello")
+    import Xml exposing (Value(StrNode))
+
+    decodeString "hello"
+    --> Ok (StrNode "hello")
 -}
 decodeString : String -> Result String Value
 decodeString str =
@@ -229,12 +231,13 @@ decodeString str =
 
 
 {-| Decode a int
-    >>> import Xml exposing (Value(IntNode))
-    >>> decodeInt "hello"
-    Err "could not convert string 'hello' to an Int"
+    import Xml exposing (Value(IntNode))
 
-    >>> decodeInt "5"
-    Ok (IntNode 5)
+    decodeInt "hello"
+    --> Err "could not convert string 'hello' to an Int"
+
+    decodeInt "5"
+    --> Ok (IntNode 5)
 -}
 decodeInt : String -> Result String Value
 decodeInt str =
@@ -248,15 +251,16 @@ decodeInt str =
 
 
 {-| Decode a float
-    >>> import Xml exposing (Value(FloatNode))
-    >>> decodeFloat "hello"
-    Err "could not convert string 'hello' to a Float"
+    import Xml exposing (Value(FloatNode))
 
-    >>> decodeFloat "5"
-    Ok (FloatNode 5.0)
+    decodeFloat "hello"
+    --> Err "could not convert string 'hello' to a Float"
 
-    >>> decodeFloat "5.5"
-    Ok (FloatNode 5.5)
+    decodeFloat "5"
+    --> Ok (FloatNode 5.0)
+
+    decodeFloat "5.5"
+    --> Ok (FloatNode 5.5)
 
 -}
 decodeFloat : String -> Result String Value
@@ -286,9 +290,10 @@ decodeBool str =
 
 {-| Decode children from a string
 
-    >>> import Xml exposing (Value(Object, Tag, StrNode))
-    >>> decodeChildren "<name>hello</name>"
-    Ok (Object [Tag "name" Dict.empty (StrNode "hello")] )
+    import Xml exposing (Value(Object, Tag, StrNode))
+
+    decodeChildren "<name>hello</name>"
+    --> Ok (Object [Tag "name" Dict.empty (StrNode "hello")] )
 
 -}
 decodeChildren : String -> Result String Value

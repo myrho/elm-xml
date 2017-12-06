@@ -1,10 +1,6 @@
 {
   "root": "../src",
   "tests": [
-  ],
-  "_comment": "There are no doc tests in any of the files.",
-  "_comment": "This causes elm-verify-examples to signal errors when elm-test runs.",
-  "tests.not": [
 	"Xml.Decode", 
 	"Xml.Query",
 	"Xml.Encode",
