@@ -1,14 +1,14 @@
 module Tests exposing (..)
 
 import Dict
-import Test exposing (..)
+import ExampleStuff
 import Expect
 import String
+import Test exposing (..)
 import Xml exposing (..)
-import Xml.Encode exposing (..)
 import Xml.Decode exposing (..)
-import Xml.Query exposing (tags, contains)
-import ExampleStuff
+import Xml.Encode exposing (..)
+import Xml.Query exposing (contains, tags)
 
 
 example : Value
@@ -248,7 +248,7 @@ all =
                         |> tags "Contents"
                         |> List.length
                     )
-                    1000
+                    100
         , test "The query for finding people should find the right tags" <|
             \_ ->
                 Expect.equal
@@ -258,5 +258,5 @@ all =
             \_ ->
                 Expect.equal
                     (List.length <| Result.withDefault [] <| ExampleStuff.fromXML <| ExampleStuff.stuff)
-                    1000
+                    100
         ]
